@@ -1,5 +1,5 @@
 import ScrollSuave from './modules/scrollsuave.js'
-import accordion from './modules/accordion.js'
+import Accordion from './modules/accordion.js'
 import slideInit from './modules/slideinit.js'
 import animaTextos from './modules/animaTexto.js'
 import ativalModal from './modules/login.js'
@@ -13,7 +13,9 @@ import initFecthBTC from './modules/fetchBTC.js'
 const scrollSuave = new ScrollSuave('[data-menu="suave"] a[href^="#"]');
 scrollSuave.init()
 
-accordion();
+const accordion = new Accordion('[data-anime="accordion"] dt')
+accordion.init()
+
 slideInit();
 animaTextos();
 ativalModal();

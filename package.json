@@ -1,13 +1,11 @@
 {
-  "name": "animaiseslint",
+  "name": "animais-fantasticos",
   "version": "1.0.0",
-  "description": "",
   "main": "script-aula.js",
   "scripts": {
     "build": "webpack --mode production",
-    "dev":"webpack --mode development --watch"
+    "dev": "webpack --mode development --watch"
   },
-  "author": "",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.13.10",

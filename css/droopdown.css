@@ -1,0 +1,35 @@
+[data-droopdown]{
+    position: relative;
+}
+
+[data-droopdown] .droopdown-menu{
+    display: none;
+}
+
+[data-droopdown]:hover .droopdown-menu,
+[data-droopdown].ativo .droopdown-menu{
+    display: block;
+}
+
+.droopdown-menu{
+    position: absolute;
+    background: #e54;
+    border: 2px solid #222;
+    z-index: 200;
+    top: 38px;
+}
+
+.droopdown-menu::after{
+    content: '';
+    color: #e54;
+    position: absolute;
+    display: block;
+    top: -5px;
+    border-bottom: 10px solid ;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+}
+
+.droopdown-menu li a:hover{
+    color: white;
+}

@@ -1,4 +1,4 @@
-import scrollSuave from './modules/scrollsuave.js'
+import ScrollSuave from './modules/scrollsuave.js'
 import accordion from './modules/accordion.js'
 import slideInit from './modules/slideinit.js'
 import animaTextos from './modules/animaTexto.js'
@@ -10,8 +10,9 @@ import initFuncionamento from './modules/funcionamento.js'
 import initFetchAnimais from './modules/fetchanimais.js'
 import initFecthBTC from './modules/fetchBTC.js'
 
+const scrollSuave = new ScrollSuave('[data-menu="suave"] a[href^="#"]');
+scrollSuave.init()
 
-scrollSuave();
 accordion();
 slideInit();
 animaTextos();

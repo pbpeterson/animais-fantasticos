@@ -2,7 +2,7 @@ import ScrollSuave from './modules/scrollsuave.js'
 import Accordion from './modules/accordion.js'
 import slideInit from './modules/slideinit.js'
 import animaTextosImg from './modules/animaTexto.js'
-import Modal from './modules/login.js'
+import ativalModal from './modules/login.js'
 import tooltip from './modules/tooltip.js'
 import initDropdownMenu from './modules/droopdownMenu.js'
 import menuMob from './modules/menu-mobile.js'
@@ -19,10 +19,8 @@ accordion.init()
 const animatextos = new animaTextosImg('[data-tab="menu"] li', '[data-tab="content"] section')
 animatextos.init()
 
-const modal = new Modal('[data-modal="abrir"]', '[data-modal="fechar"]', '[data-modal="container"]')
-modal.init()
-
 slideInit();
+ativalModal();
 tooltip();
 initDropdownMenu();
 menuMob();

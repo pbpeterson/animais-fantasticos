@@ -8,6 +8,9 @@ export default class animaTextosImg {
     this.content.forEach((section) => {
     section.classList.remove('ativo');
     });
+    this.content[index].classList.add('show-down');
+    this.content[index].classList.add('ativo');
+    
 
   }
 
@@ -20,8 +23,8 @@ export default class animaTextosImg {
         this.addClasse(index);
       });
     });
-
+    return this
     }
-  }   
+  }
     
 }

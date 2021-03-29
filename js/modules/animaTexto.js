@@ -20,8 +20,8 @@ export default class animaTextosImg {
         this.addClasse(index);
       });
     });
-    return this
+
     }
-  }
+  }   
     
 }

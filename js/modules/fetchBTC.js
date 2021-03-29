@@ -1,11 +1,11 @@
-export default function initFecthBTC() {
-  const btcHtml = document.querySelector('.btc-preco');
-  const urlBTC = 'https://blockchain.info/ticker';
+export default function fecthBTC(url, target) {
+  const btcHtml = document.querySelector(target);
+
   async function pegaBTCvalue(url) {
     const BtcAPI = await fetch(url);
     const btcBRLvalue = await BtcAPI.json();
     const valorBTC = await btcBRLvalue.BRL.buy;
-    btcHtml.innerText = valorBTC;
+    btcHtml.innerText = (1000 / valorBTC).toFixed(4);
   }
-  pegaBTCvalue(urlBTC);
+  pegaBTCvalue(url);
 }

@@ -8,7 +8,7 @@ import initDropdownMenu from './modules/droopdownMenu.js'
 import menuMob from './modules/menu-mobile.js'
 import initFuncionamento from './modules/funcionamento.js'
 import fetchanimais from './modules/fetchanimais.js'
-import initFecthBTC from './modules/fetchBTC.js'
+import fecthBTC from './modules/fetchBTC.js'
 
 const scrollSuave = new ScrollSuave('[data-menu="suave"] a[href^="#"]');
 scrollSuave.init()
@@ -27,6 +27,8 @@ ativalModal();
 initDropdownMenu();
 menuMob();
 initFuncionamento();
-initFecthBTC();
+
+
+fecthBTC('https://blockchain.info/ticker', '.btc-preco');
 
 fetchanimais('../animaisapi.json', '.numeros-grid')

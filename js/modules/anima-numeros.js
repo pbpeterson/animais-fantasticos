@@ -1,32 +1,49 @@
-export default function animanumeros() {
-  const numeros = document.querySelectorAll('[data-numero]');
+export default class animanumeros {
+  
+  constructor(numeros, observeTarget, observerClass){
+    this.numeros = document.querySelectorAll(numeros);
+    this.observeTarget = document.querySelector(observeTarget);
+    this.observerClass =  observerClass;
 
-  function animador() {
-    numeros.forEach((numero) => {
-      const total = +numero.innerText;
-      let start = 0;
-      const incremento = Math.floor(total / 100);
-      const timer = setInterval(() => {
-        start = +incremento;
-        numero.innerText = start;
-        if (start > total) {
-          numero.innerText = total;
-          clearInterval(timer);
+    this.handleMutation = this.handleMutation.bind(this)
+  }
+  
+
+  static incrementarNumer(numero){
+    const total = +numero.innerText;
+    const incremento = Math.floor(total / 100);
+    let start = 0;
+    const timer = setInterval(() => {
+      start +=incremento;
+      numero.innerText = start;
+      if (start > total) {
+        numero.innerText = total;
+        clearInterval(timer);
         }
-      }, 0);
-    });
+      }, 25*Math.random());
   }
 
-  let observe;
-  function handleMutation(mutation) {
-    if (mutation[0].target.classList.contains('ativo')) {
-      observe.disconnect();
-      animador();
+  animador() {
+    this.numeros.forEach((numero) => this.constructor.incrementarNumer(numero));
+  }
+
+  handleMutation(mutation) {
+    if (mutation[0].target.classList.contains(this.observerClass)) {
+      this.observe.disconnect();
+      this.animador();
     }
   }
 
-  const observeTarget = document.querySelector('.numeros');
-  observe = new MutationObserver(handleMutation);
+  addMutationObserve(){
+    this.observe = new MutationObserver(this.handleMutation);
+    this.observe.observe(this.observeTarget, { attributes: true });
+  }
 
-  observe.observe(observeTarget, { attributes: true });
+  init(){
+    if(this.numeros.length && this.observeTarget){
+      this.addMutationObserve();
+      this.animador()
+    }
+
+  }
 }

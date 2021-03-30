@@ -4,7 +4,7 @@ import ScrollAnima from './modules/scrollanima.js'
 import animaTextosImg from './modules/animaTexto.js'
 import ativalModal from './modules/login.js'
 import Tooltip from './modules/tooltip.js'
-import initDropdownMenu from './modules/droopdownMenu.js'
+import droopdownMenu from './modules/droopdownMenu.js'
 import menuMob from './modules/menu-mobile.js'
 import initFuncionamento from './modules/funcionamento.js'
 import fetchanimais from './modules/fetchanimais.js'
@@ -25,9 +25,11 @@ tooltip.init()
 const scrollanima = new ScrollAnima('[data-anime="scroll"]')
 scrollanima.init()
 
+const droopdownmenu = new droopdownMenu('[data-anime="scroll"]')
+droopdownmenu.init()
+
 
 ativalModal();
-initDropdownMenu();
 menuMob();
 initFuncionamento();
 

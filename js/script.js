@@ -25,12 +25,14 @@ tooltip.init()
 const scrollanima = new ScrollAnima('[data-anime="scroll"]')
 scrollanima.init()
 
-const droopdownmenu = new droopdownMenu('[data-anime="scroll"]')
+const droopdownmenu = new droopdownMenu('[data-droopdown]')
 droopdownmenu.init()
+
+const menumobile = new menuMob('[data-menu="button"]', '[data-menu="list"]')
+menumobile.init()
 
 
 ativalModal();
-menuMob();
 initFuncionamento();
 
 

@@ -6,7 +6,7 @@ import ativalModal from './modules/login.js'
 import Tooltip from './modules/tooltip.js'
 import droopdownMenu from './modules/droopdownMenu.js'
 import menuMob from './modules/menu-mobile.js'
-import initFuncionamento from './modules/funcionamento.js'
+import Funcionamento from './modules/funcionamento.js'
 import fetchanimais from './modules/fetchanimais.js'
 import fecthBTC from './modules/fetchBTC.js'
 
@@ -31,10 +31,11 @@ droopdownmenu.init()
 const menumobile = new menuMob('[data-menu="button"]', '[data-menu="list"]')
 menumobile.init()
 
+const funcionamento = new Funcionamento('[data-semana]', 'aberto')
+funcionamento.init()
+
 
 ativalModal();
-initFuncionamento();
-
 
 fecthBTC('https://blockchain.info/ticker', '.btc-preco');
 

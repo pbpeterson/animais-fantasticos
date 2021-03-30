@@ -1,6 +1,6 @@
 import ScrollSuave from './modules/scrollsuave.js'
 import Accordion from './modules/accordion.js'
-import slideInit from './modules/slideinit.js'
+import ScrollAnima from './modules/scrollanima.js'
 import animaTextosImg from './modules/animaTexto.js'
 import ativalModal from './modules/login.js'
 import Tooltip from './modules/tooltip.js'
@@ -13,7 +13,7 @@ import fecthBTC from './modules/fetchBTC.js'
 const scrollSuave = new ScrollSuave('[data-menu="suave"] a[href^="#"]');
 scrollSuave.init()
 
-const accordion = new Accordion('[data-anime="accordion"] dt')
+const accordion = new Accordion('[data-anima="accordion"] dt')
 accordion.init()
 
 const animatextos = new animaTextosImg('[data-tab="menu"] li', '[data-tab="content"] section')
@@ -22,7 +22,10 @@ animatextos.init()
 const tooltip = new Tooltip('[data-tooltip]')
 tooltip.init()
 
-slideInit();
+const scrollanima = new ScrollAnima('[data-anime="scroll"]')
+scrollanima.init()
+
+
 ativalModal();
 initDropdownMenu();
 menuMob();

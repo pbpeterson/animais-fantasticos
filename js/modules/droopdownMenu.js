@@ -1,19 +1,41 @@
 import clickOutside from './outsideclick.js';
 
-export default function droopDown() {
-  const subMenu = document.querySelectorAll('[data-droopdown]');
-  const elements = ['touchstart', 'click'];
+export default class droopDownMenu {
 
-  function handleClick(event) {
+  constructor(subMenus, events){
+  this.subMenus = document.querySelectorAll(subMenus);
+  this.activeClass = 'active'
+  if(events === undefined){
+  this.events = ['touchstart', 'click'];
+  } else{
+    this.events = events;
+  }
+  this.activeDropDownMenu = this.activeDropDownMenu.bind(this)
+}
+
+  activeDropDownMenu(event) {
     event.preventDefault();
-    this.classList.add('ativo');
-    clickOutside(this, elements, () => {
-      this.classList.remove('ativo');
+    const element = event.currentTarget
+    element.classList.add(this.activeClass);
+    clickOutside(element, this.events, () => {
+      element.classList.remove('ativo');
     });
   }
-  subMenu.forEach((menu) => {
-    ['click', 'touchstart'].forEach((userEvent) => {
-      menu.addEventListener(userEvent, handleClick);
-    });
-  });
+
+    addDropdownMenusEvent(){
+      this.subMenus.forEach((menu) => {
+        this.events.forEach((userEvent) => {
+          menu.addEventListener(userEvent, this.activeDropDownMenu);
+        });
+      });
+    }
+
+    init(){
+      if(this.subMenus.length){
+        this.addDropdownMenusEvent() 
+      }
+      return this
+    }
+
+ 
 }

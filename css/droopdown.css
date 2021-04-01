@@ -1,35 +1,62 @@
-[data-droopdown]{
-    position: relative;
+[data-droopdown] {
+  position: relative;
 }
 
-[data-droopdown] .droopdown-menu{
+[data-droopdown] .droopdown-menu {
+  display: none;
+}
+[data-droopdown] a:hover {
+  color: #e54;
+}
+
+[data-droopdown].ativo .droopdown-menu {
+  display: block;
+  animation: descemenu 0.3s forwards;
+}
+
+@keyframes descemenu {
+  from {
+    transform: translateY(-10px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.droopdown-menu {
+  position: absolute;
+  background: #e54;
+  border: 2px solid #222;
+  z-index: 200;
+  top: 38px;
+}
+
+.droopdown-menu::after {
+  content: "";
+  color: #e54;
+  position: absolute;
+  display: block;
+  top: -5px;
+  border-bottom: 10px solid;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
+
+.droopdown-menu li a:hover {
+  color: white;
+}
+
+@media (max-width: 700px) {
+  [data-droopdown] .droopdown-menu {
+    display: block;
+  }
+  [data-droopdown].ativo .droopdown-menu {
+    animation: none;
+  }
+  .droopdown-menu::after {
     display: none;
-}
-
-[data-droopdown]:hover .droopdown-menu,
-[data-droopdown].ativo .droopdown-menu{
-    display: block;
-}
-
-.droopdown-menu{
-    position: absolute;
-    background: #e54;
-    border: 2px solid #222;
-    z-index: 200;
-    top: 38px;
-}
-
-.droopdown-menu::after{
-    content: '';
-    color: #e54;
-    position: absolute;
-    display: block;
-    top: -5px;
-    border-bottom: 10px solid ;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-}
-
-.droopdown-menu li a:hover{
-    color: white;
+  }
+  [data-droopdown] a:hover {
+    color: #222;
+  }
 }

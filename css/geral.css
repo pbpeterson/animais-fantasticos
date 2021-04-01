@@ -279,12 +279,19 @@ body {
 }
 
 .js [data-anima="accordion"] dt::after {
-  content: "⮧";
+  content: "";
+  height: 10px;
+  width: 10px;
+  display: inline-block;
+  background: url("../img/arrow-red.svg") no-repeat center center;
   margin-left: 10px;
+  transform: rotate(90deg);
+  transition: transform 0.3s;
 }
 
 .js [data-anima="accordion"] dt.ativo::after {
-  content: "⮥";
+  content: "";
+  transform: rotate(-90deg);
 }
 
 .js [data-anima="accordion"] dd.ativo {
@@ -303,14 +310,14 @@ body {
   }
 }
 
-.js [js-scroll] {
+.js [data-anime="scroll"] {
   opacity: 0;
+  transition: 0.5s;
   transform: translateX(-30px);
 }
 
-.js [js-scroll].ativo {
+.js [data-anime="scroll"].ativo {
   opacity: 1;
-  transition: 0.5s;
   transform: translate(0);
 }
 
@@ -334,4 +341,11 @@ body {
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+.arrow-black {
+  background: url("../img/arrow-black.svg") no-repeat center center;
+  display: inline-block;
+  height: 8px;
+  width: 10px;
 }
